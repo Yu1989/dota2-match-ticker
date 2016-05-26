@@ -2,7 +2,7 @@
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
-** WORK IN PROGRESS**
+**WORK IN PROGRESS**
 
 Source code for [Dota2 Match Ticker](https://baidu.com) - an single page site with Dota2 match schedules, and nothing else.
 
