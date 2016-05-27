@@ -34,3 +34,7 @@ node_modules
 
 # Compiled by Babel
 dist
+
+# PM2 remote-deploy file
+# Let's leave it actually for demo purposes
+# ecosystem.json

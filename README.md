@@ -15,7 +15,6 @@ A minimal project built with big names:
 - Babel
 - Koa 2
 - React
-- Webpack
 - PM2
 
 -----
@@ -27,8 +26,10 @@ $ cd dota2-match-ticker
 $ npm install
 $ npm run build
 $ npm start
+
+# Now visit localhost:3000
 ```
-Visit localhost:3000.
+
 
 ## Test
 ```

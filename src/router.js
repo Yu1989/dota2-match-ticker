@@ -1,8 +1,9 @@
+import {getData} from './data'
 const router = require('koa-router')()
 
-router.get('/', function * (next) {
-  yield this.render('index', {
-    title: 'Welcome to Koa'
+router.get('/', async (ctx, next) => {
+  await ctx.render('index', {
+    data: getData()
   })
 })
 
