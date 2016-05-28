@@ -15,7 +15,6 @@ A minimal project built with big names:
 - Babel
 - Koa 2
 - React
-- Webpack
 - PM2
 
 -----
@@ -26,9 +25,12 @@ $ git clone https://github.com/Yu1989/dota2-match-ticker.git
 $ cd dota2-match-ticker
 $ npm install
 $ npm run build
-$ npm start
+$ npm run dev
 ```
-Visit localhost:3000.
+Now visit localhost:3000.
+
+Note: To fully kill the dev server, <kbd>ctrl+c</kbd> out of logging and do `npm run kill`, which is due to the fact `pm2-dev` doesn't quite play along with `babel-node`.
+
 
 ## Test
 ```
