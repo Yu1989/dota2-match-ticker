@@ -6,8 +6,10 @@
   "scripts": {
     "build": "rm -rf dist; babel src -d dist; webpack --progress --colors",
     "test": "standard & mocha",
-    "dev": "pm2 start src/app.js --watch --interpreter babel-node; pm2 logs; webpack --progress --colors --watch",
-    "deploy": "pm2 deploy production"
+    "dev": "pm2 start src/app.js --watch --interpreter babel-node; pm2 logs --raw | bunyan -o short; webpack --watch",
+    "kill": "pm2 kill",
+    "deploy": "pm2 deploy production",
+    "logs": "pm2 logs --raw | bunyan -o short"
   },
   "standard": {
     "parser": "babel-eslint"
@@ -38,6 +40,7 @@
     "koa-static": "^3.0.0",
     "koa-views": "^5.0.1",
     "lodash": "^4.13.1",
+    "moment": "^2.13.0",
     "pug": "^2.0.0-alpha8",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",

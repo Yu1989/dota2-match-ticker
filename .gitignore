@@ -36,5 +36,5 @@ node_modules
 dist
 
 # PM2 remote-deploy file
-# Let's leave it actually for demo purposes
+# Actually let's leave it unignored for demo purposes
 # ecosystem.json

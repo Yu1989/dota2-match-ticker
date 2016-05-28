@@ -1,6 +1,7 @@
 import _ from 'lodash'
 import request from 'request-promise'
 import cheerio from 'cheerio'
+import logger from '../logger'
 
 const baseUrl = 'http://www.gosugamers.net'
 const urlForPage = page => `/dota2/gosubet?u-page=${page}`
@@ -13,6 +14,28 @@ const req = request.defaults({
 const getTeamFullNames = async function (matchUrl) {
   const $ = await req(matchUrl)
   return [$('.opponent1 h3 a').text(), $('.opponent2 h3 a').text()]
+}
+
+/**
+ * Map time unit to number of seconds
+ * @type {Object}
+ */
+const secPerUnitMap = {
+  'w': 7 * 24 * 60 * 60,
+  'd': 24 * 60 * 60,
+  'h': 60 * 60,
+  'm': 60,
+  's': 1
+}
+
+// TODO test
+const liveInToLiveAt = function (liveIn) {
+  const liveInSeconds = liveIn.split(' ').reduce((prev, curr) => {
+    const unit = curr[curr.length] - 1
+    const count = +curr.slice(0, curr.length - 1)
+    return secPerUnitMap[unit] * count
+  }, 0)
+  return Date.now() / 1000 + liveInSeconds
 }
 
 const getMatch = async function ($e) {
@@ -32,8 +55,7 @@ const getMatch = async function ($e) {
 
   // Get live-in if exists
   const liveIn = $e.find('.live-in').text().trim()
-  if (liveIn.length) match.liveIn = liveIn
-  // TODO convert to unix timestamp
+  if (liveIn.length) match.liveAt = liveInToLiveAt(liveIn)
 
   return match
 }
@@ -62,12 +84,17 @@ const getUpcomings = async function ($) {
 }
 
 const scrape = async function () {
-  console.log('scrape start')
-  const $ = await req(urlForPage(1))
-  const lives = await getLives($)
-  const upcomings = await getUpcomings($)
-  console.log('scrape done')
-  return {lives, upcomings}
+  logger.info('start scraping')
+  try {
+    const $ = await req(urlForPage(1))
+    const lives = await getLives($)
+    const upcomings = await getUpcomings($)
+    logger.info('done scraping')
+    return { lives, upcomings }
+  } catch (err) {
+    logger.error({ err: err }, 'scraping error')
+    return null
+  }
 }
 
 export default scrape

@@ -1,12 +1,14 @@
 {
-  "apps": [{
-    "name": "match ticker",
-    "script": "dist/app.js",
-    "ignore_watch": [
-      "dist",
-      "src/public"
-    ]
-  }],
+  "apps": [
+    {
+      "name": "match ticker",
+      "script": "dist/app.js",
+      "ignore_watch": [
+        "dist",
+        "src/public"
+      ]
+    }
+  ],
   "deploy": {
     "production": {
       "user": "yu",
