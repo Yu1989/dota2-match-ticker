@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import request from 'request-promise'
 import cheerio from 'cheerio'
-import logger from '../logger'
+import log from '../logger'
 
 const baseUrl = 'http://www.gosugamers.net'
 const urlForPage = page => `/dota2/gosubet?u-page=${page}`
@@ -84,15 +84,15 @@ const getUpcomings = async function ($) {
 }
 
 const scrape = async function () {
-  logger.info('start scraping')
+  log.info('start scraping')
   try {
     const $ = await req(urlForPage(1))
     const lives = await getLives($)
     const upcomings = await getUpcomings($)
-    logger.info('done scraping')
+    log.info('done scraping')
     return { lives, upcomings }
   } catch (err) {
-    logger.error({ err: err }, 'scraping error')
+    log.error({ err: err }, 'scraping error')
     return null
   }
 }

@@ -1,4 +1,4 @@
-import {getData} from './data'
+import { getData } from './data'
 const router = require('koa-router')()
 
 router.get('/', async (ctx, next) => {
@@ -7,4 +7,4 @@ router.get('/', async (ctx, next) => {
   })
 })
 
-module.exports = router
+export default router

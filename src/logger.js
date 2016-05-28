@@ -1,7 +1,7 @@
 import bunyan from 'bunyan'
 
 const logger = bunyan.createLogger({
-  name: 'match ticker',
+  name: 'match-ticker',
   serializers: bunyan.stdSerializers,
   streams: [
     {

@@ -1,7 +1,7 @@
 {
   "apps": [
     {
-      "name": "match ticker",
+      "name": "match-ticker",
       "script": "dist/app.js",
       "ignore_watch": [
         "dist",

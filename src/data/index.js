@@ -25,6 +25,8 @@ const loopScraping = function () {
  * @return {Object} Match data object
  */
 const getData = function () {
+  if (!cache) return {}
+
   const now = Date.now() / 1000
   for (let match of cache.upcomings) {
     match.liveIn = match.liveAt - now
