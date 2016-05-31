@@ -1,3 +1,12 @@
+var webpack = require('webpack')
+var plugins = process.env.NODE_ENV !== 'production'
+  ? []
+  : [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: { warnings: false }
+    })
+  ]
+
 module.exports = {
   entry: './public/javascripts/entry.js',
   output: {
@@ -17,5 +26,6 @@ module.exports = {
         query: JSON.parse(require('fs').readFileSync('./.babelrc'))
       }
     ]
-  }
+  },
+  plugins: plugins
 }

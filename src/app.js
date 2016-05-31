@@ -3,8 +3,8 @@ import Koa from 'koa'
 import views from 'koa-views'
 import serve from 'koa-static'
 import router from './router'
-import log from './logger'
-import { loopScraping } from './data'
+import { port } from './config'
+import { serverLog as log } from './logger'
 
 const app = new Koa()
 
@@ -23,7 +23,4 @@ app.use(views(`${__dirname}/../public/templates`, { extension: 'pug' }))
 app.use(router.routes())
 app.use(router.allowedMethods())
 
-// Start the loop of data scraping
-loopScraping()
-
-app.listen(process.env.PORT || 3000)
+app.listen(port)

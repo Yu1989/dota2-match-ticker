@@ -11,10 +11,10 @@ Source code for [Dota2 Match Ticker](https://baidu.com) - an single page site wi
 -----
 
 A minimal project built with big names:
-- Node v6
 - Babel
 - Koa 2
 - React
+- Webpack
 - PM2
 
 -----
@@ -29,7 +29,9 @@ $ npm run dev
 ```
 Now visit localhost:3000.
 
-Note: To fully kill the dev server, <kbd>ctrl+c</kbd> out of logging and do `npm run kill`, which is due to the fact `pm2-dev` doesn't quite play along with `babel-node`.
+View [package.json](https://github.com/Yu1989/dota2-match-ticker/blob/master/package.json) for all available npm commands.
+
+Note: To fully kill the dev server, run `npm run kill` after <kbd>ctrl+c</kbd>, which is due to the fact `pm2-dev` doesn't quite play along with `babel-node`.
 
 
 ## Test

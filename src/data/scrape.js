@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import request from 'request-promise'
 import cheerio from 'cheerio'
-import log from '../logger'
+import { dataLog as log } from '../logger'
 
 const baseUrl = 'http://www.gosugamers.net'
 const urlForPage = page => `/dota2/gosubet?u-page=${page}`
@@ -11,7 +11,7 @@ const req = request.defaults({
   transform: body => cheerio.load(body)
 })
 
-const getTeamFullNames = async function (matchUrl) {
+async function getTeamFullNames (matchUrl) {
   const $ = await req(matchUrl)
   return [$('.opponent1 h3 a').text(), $('.opponent2 h3 a').text()]
 }
@@ -29,7 +29,7 @@ const secPerUnitMap = {
 }
 
 // TODO test
-const liveInToLiveAt = function (liveIn) {
+function liveInToLiveAt (liveIn) {
   const liveInSeconds = liveIn.split(' ').reduce((prev, curr) => {
     const unit = curr[curr.length] - 1
     const count = +curr.slice(0, curr.length - 1)
@@ -38,7 +38,7 @@ const liveInToLiveAt = function (liveIn) {
   return Date.now() / 1000 + liveInSeconds
 }
 
-const getMatch = async function ($e) {
+async function getMatch ($e) {
   let team1 = $e.find('.opp1 span:first-child').text()
   let team2 = $e.find('.opp2 span:last-child').text()
 
@@ -60,7 +60,7 @@ const getMatch = async function ($e) {
   return match
 }
 
-const getLives = async function ($) {
+async function getLives ($) {
   const lives = []
   for (let e of $('#col1 .box:first-child tr').get()) {
     lives.push(await getMatch($(e)))
@@ -68,7 +68,7 @@ const getLives = async function ($) {
   return lives
 }
 
-const getUpcomings = async function ($) {
+async function getUpcomings ($) {
   const upcomings = []
   const pageNos = $('#col1 .box:nth-child(2) .pages a')
     .map((i, e) => +$(e).text().trim() || 0)
@@ -83,7 +83,7 @@ const getUpcomings = async function ($) {
   return upcomings
 }
 
-const scrape = async function () {
+async function scrape () {
   log.info('start scraping')
   try {
     const $ = await req(urlForPage(1))
@@ -93,7 +93,7 @@ const scrape = async function () {
     return { lives, upcomings }
   } catch (err) {
     log.error({ err: err }, 'scraping error')
-    return null
+    return { lives: [], upcomings: [] }
   }
 }
 
