@@ -3,9 +3,13 @@ import React, { Component } from 'react'
 
 class MatchList extends Component {
   render () {
-    console.log(this.props )
     const matches = this.props.matches.map(m => <Match {...m} />)
-    return <ul>{matches}</ul>
+    return (
+      <div>
+        <h2>{this.props.title}</h2>
+        <ul className='match-list'>{matches}</ul>
+      </div>
+    )
   }
 }
 

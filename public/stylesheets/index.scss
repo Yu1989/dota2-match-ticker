@@ -1,4 +1,91 @@
-.container {
-  font-size: 14px;
-  font-style: italic;
+$white: #ecf0f1;
+$red: #e74c3c;
+$black-border: 1px solid rgba(0, 0, 0, 0.5);
+$page-width: 1040px;
+
+body {
+  min-width: $page-width;
+  background-image: url(http://image3.uuu9.com/war3/dota2/UploadFiles/201208/201208250213066662426.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: Georgia, "Bitstream Charter", serif;
+  color: $white;
+}
+.overlay {
+  z-index: -99;
+  background-color: black;
+  opacity: 0.75;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.main {
+  width: $page-width;
+  margin: 0 auto;
+
+  h2 {
+    margin-top: 60px;
+    margin-left: 25px;
+  }
+}
+#search {
+  padding-top: 30px;
+  text-align: center;
+
+  input {
+    border: 0;
+    font-size: 1rem;
+    font-family: Georgia, "Bitstream Charter", serif;
+    padding: 10px 15px;
+    width: 250px;
+  }
+}
+.match-list {
+  list-style: none;
+
+  li {
+    line-height: 60px;
+    border-bottom: $black-border;
+
+    span {
+      display: inline-block;
+      padding-right: 10px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      &.team1, &.team2 {
+        width: 230px;
+      }
+      &.tournament-img, &.vs {
+        width: 70px;
+      }
+      &.tournament, &.live-in, &.vs {
+        font-size: 0.9rem;
+      }
+      &.tournament {
+        width: 190px;
+      }
+      &.live-in {
+        width: 110px;
+        color: $red;
+      }
+      &.vs {
+        opacity: 0.5;
+      }
+      &.tournament-img {
+        span {
+          display: inline-block;
+          width: 70px;
+          height: 30px;
+          background-position: center center;
+          background-size: cover;
+          position: relative;
+          top: 8px;
+        }
+      }
+    }
+  }
 }

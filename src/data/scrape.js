@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import moment from 'moment'
 import request from 'request-promise'
 import cheerio from 'cheerio'
 import { dataLog as log } from '../logger'
@@ -31,11 +32,11 @@ const secPerUnitMap = {
 // TODO test
 function liveInToLiveAt (liveIn) {
   const liveInSeconds = liveIn.split(' ').reduce((prev, curr) => {
-    const unit = curr[curr.length] - 1
+    const unit = curr[curr.length - 1]
     const count = +curr.slice(0, curr.length - 1)
-    return secPerUnitMap[unit] * count
+    return secPerUnitMap[unit] * count + prev
   }, 0)
-  return Date.now() / 1000 + liveInSeconds
+  return +moment().format('X') + liveInSeconds
 }
 
 async function getMatch ($e) {
