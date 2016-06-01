@@ -16,7 +16,7 @@
       "ref": "origin/master",
       "repo": "ssh://git@github.com:22/Yu1989/dota2-match-ticker.git",
       "path": "~/apps/dota2-match-ticker",
-      "post-deploy": "npm install && npm run build && pm2 startOrRestart ecosystem.json --env production",
+      "post-deploy": "npm install && npm run build && pm2 start bin/production.json --env production",
       "env": {
         "NODE_ENV": "production",
         "port": 3001
