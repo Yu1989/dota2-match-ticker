@@ -38,3 +38,9 @@ dist
 # PM2 remote-deploy file
 # Actually let's leave it unignored for demo purposes
 # ecosystem.json
+
+# Cache file
+matches.cache
+
+# Other
+.DS_Store

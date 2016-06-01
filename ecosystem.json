@@ -2,17 +2,17 @@
   "apps": [
     {
       "name": "match-ticker",
-      "script": "dist/app.js",
-      "ignore_watch": [
-        "dist",
-        "src/public"
-      ]
+      "script": "dist/app.js"
+    },
+    {
+      "name": "data-scraper",
+      "script": "dist/data/app.js"
     }
   ],
   "deploy": {
     "production": {
       "user": "yu",
-      "host": "212.83.163.1 -p 8775",
+      "host": "123.57.149.13 -p 1875",
       "ref": "origin/master",
       "repo": "ssh://git@git.coding.net:22/alexYu89/dota2-match-ticker.git",
       "path": "~/apps/dota2-match-ticker",

@@ -1,18 +1,21 @@
 import bunyan from 'bunyan'
 
-const logger = bunyan.createLogger({
-  name: 'match-ticker',
-  serializers: bunyan.stdSerializers,
-  streams: [
-    {
-      level: 'info',
-      stream: process.stdout            // log INFO and above to stdout
-    },
-    {
-      level: 'error',
-      path: `${__dirname}/../error.log`  // log ERROR and above to a file
-    }
-  ]
-})
+function createlogger (name) {
+  return bunyan.createLogger({
+    name: name,
+    serializers: bunyan.stdSerializers,
+    streams: [
+      {
+        level: 'info',
+        stream: process.stdout            // log INFO and above to stdout
+      },
+      {
+        level: 'error',
+        path: `${__dirname}/../error.log`  // log ERROR and above to a file
+      }
+    ]
+  })
+}
 
-export default logger
+export const serverLog = createlogger('match-ticker')
+export const dataLog = createlogger('data-scraper')

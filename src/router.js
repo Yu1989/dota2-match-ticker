@@ -1,9 +1,11 @@
-import { getData } from './data'
-const router = require('koa-router')()
+import getData from './data/get'
+import Router from 'koa-router'
+
+const router = Router()
 
 router.get('/', async (ctx, next) => {
   await ctx.render('index', {
-    data: getData()
+    data: await getData()
   })
 })
 

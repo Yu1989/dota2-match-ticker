@@ -1,0 +1,24 @@
+{
+  "apps": [
+    {
+      "name": "match-ticker",
+      "script": "src/app.js",
+      "interpreter": "babel-node",
+      "watch": true,
+      "ignore_watch": [
+        "dist",
+        "public"
+      ]
+    },
+    {
+      "name": "data-scraper",
+      "script": "src/data/app.js",
+      "interpreter": "babel-node",
+      "watch": true,
+      "ignore_watch": [
+        "dist",
+        "public"
+      ]
+    }
+  ]
+}
