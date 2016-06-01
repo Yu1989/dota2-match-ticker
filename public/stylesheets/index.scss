@@ -44,6 +44,10 @@ body {
 .match-list {
   list-style: none;
 
+  .dim {
+    opacity: 0.5;
+  }
+
   li {
     line-height: 60px;
     border-bottom: $black-border;
@@ -70,9 +74,6 @@ body {
       &.live-in {
         width: 110px;
         color: $red;
-      }
-      &.vs {
-        opacity: 0.5;
       }
       &.tournament-img {
         span {

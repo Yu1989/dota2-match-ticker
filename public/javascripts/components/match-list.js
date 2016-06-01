@@ -18,20 +18,14 @@ class MatchList extends Component {
 
   render () {
     const matches = this.searchMatches(this.props.keyword).map(m => <Match {...m} />)
-    return matches.length
-      ? (
+    return (
       <div>
         <h2>{this.props.title}</h2>
         <ul className='match-list'>
-          {matches}
+          {matches.length ? matches : <li className='dim'>No matches.</li>}
         </ul>
       </div>
-      )
-      : (
-      <p>
-        No matches.
-      </p>
-      )
+    )
   }
 }
 
