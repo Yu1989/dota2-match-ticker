@@ -22,7 +22,7 @@ class MatchTicker extends Component {
 
   render () {
     return (
-      <div className='main'>
+      <div>
         <SearchBar
           keyword={this.state.keyword}
           onKeywordChange={this.handleKeywordChange.bind(this)}

@@ -22,6 +22,7 @@ app.use(async (ctx, next) => {
 })
 
 app.use(serve(`${__dirname}/../public/dist`))
+app.use(serve(`${__dirname}/../public/images`))
 app.use(views(`${__dirname}/../public/templates`, { extension: 'pug' }))
 app.use(router.routes())
 app.use(router.allowedMethods())
