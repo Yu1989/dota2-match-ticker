@@ -2,7 +2,7 @@
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
-Source code for [Dota2 Match Ticker](http://dmt.jiangyu.rocks) - an single page site with Dota2 match schedules, and nothing else.
+Source code for [Dota2 Match Ticker](http://dota.jiangyu.rocks) - an single page site with Dota2 match schedules, and nothing else.
 
 [Dota2赛程表](https://baidu.com)的源码.
 

@@ -5,6 +5,7 @@ import React, { Component } from 'react'
  */
 class Match extends Component {
   render () {
+    // Set image as background-image for better control
     const imageStyle = {
       backgroundImage: `url(${this.props.tournamentImgUrl})`
     }

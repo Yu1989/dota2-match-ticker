@@ -1,5 +1,10 @@
 import bunyan from 'bunyan'
 
+/**
+ * Helper to create a logger with designated name
+ * @param  {string} name - Name of logger
+ * @return {Object} A bunyan logger
+ */
 function createlogger (name) {
   return bunyan.createLogger({
     name: name,
@@ -7,11 +12,11 @@ function createlogger (name) {
     streams: [
       {
         level: 'info',
-        stream: process.stdout            // log INFO and above to stdout
+        stream: process.stdout // Log INFO and above to stdout
       },
       {
         level: 'error',
-        path: `${__dirname}/../error.log`  // log ERROR and above to a file
+        path: `${__dirname}/../error.log` // Log ERROR and above to a file
       }
     ]
   })

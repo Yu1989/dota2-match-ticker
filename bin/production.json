@@ -19,7 +19,7 @@
       "post-deploy": "npm install && npm run build && pm2 start bin/production.json --env production",
       "env": {
         "NODE_ENV": "production",
-        "port": 3001
+        "PORT": 3001
       }
     }
   }

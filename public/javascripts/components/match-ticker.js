@@ -11,6 +11,11 @@ class MatchTicker extends Component {
     this.state = { keyword: '' }
   }
 
+  /**
+   * Handler for when user modifies keyword in search bar
+   * Setting new state to trigger view refreshing
+   * @param  {string} keyword - Modified keyword
+   */
   handleKeywordChange (keyword) {
     this.setState({ keyword })
   }

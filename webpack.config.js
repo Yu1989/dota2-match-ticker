@@ -1,4 +1,8 @@
 var webpack = require('webpack')
+
+/**
+ * Only uglify if in production
+ */
 var plugins = process.env.NODE_ENV !== 'production'
   ? []
   : [
