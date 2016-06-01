@@ -6,9 +6,10 @@
   "scripts": {
     "build": "rm -rf dist; babel src -d dist; NODE_ENV=production webpack --progress --colors",
     "test": "standard",
-    "dev": "pm2 start development.json; webpack --watch",
+    "dev": "pm2 start bin/development.json; webpack --watch",
     "logs": "pm2 logs --raw | bunyan -o short",
-    "deploy": "pm2 deploy production",
+    "deploy": "pm2 deploy bin/producton.json production",
+    "deploy-setup": "pm2 deploy bin/producton.json production setup",
     "kill": "pm2 kill"
   },
   "standard": {
