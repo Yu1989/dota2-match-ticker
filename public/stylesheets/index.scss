@@ -5,7 +5,7 @@ $page-width: 1040px;
 
 body {
   min-width: $page-width;
-  background-image: url(http://image3.uuu9.com/war3/dota2/UploadFiles/201208/201208250213066662426.jpg);
+  background-image: url(http://dota.jiangyu.rocks/bg.jpg);
   background-attachment: fixed;
   background-size: cover;
   font-family: Georgia, "Bitstream Charter", serif;
@@ -21,7 +21,7 @@ body {
   right: 0;
   bottom: 0;
 }
-.main {
+#main {
   width: $page-width;
   margin: 35px auto;
 
