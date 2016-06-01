@@ -14,7 +14,7 @@
       "user": "yu",
       "host": "123.57.149.13 -p 1875",
       "ref": "origin/master",
-      "repo": "ssh://git@git.coding.net:22/alexYu89/dota2-match-ticker.git",
+      "repo": "ssh://git@github.com:22/Yu1989/dota2-match-ticker.git",
       "path": "~/apps/dota2-match-ticker",
       "post-deploy": "npm install && npm run build && pm2 startOrRestart ecosystem.json --env production",
       "env": {
