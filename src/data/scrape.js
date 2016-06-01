@@ -85,6 +85,8 @@ async function getMatch ($e) {
  * @return {Array.<Object>} Array of live matches
  */
 async function getLives ($) {
+  log.info('getting lives')
+
   const lives = []
   for (let e of $('#col1 .box:first-child tr').get()) {
     lives.push(await getMatch($(e)))
@@ -108,6 +110,8 @@ async function getUpcomings ($) {
 
   // Scrape one by one
   for (let i = 1; i <= maxPage; ++i) {
+    log.info(`getting page ${i} of upcomings`)
+
     $ = i === 1 ? $ : await req(urlForPage(i))
     for (let e of $('#col1 .box:nth-child(2) tr').get()) {
       upcomings.push(await getMatch($(e)))
