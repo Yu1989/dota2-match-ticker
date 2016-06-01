@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 
+/**
+ * Component that renders one match in an <li>
+ */
 class Match extends Component {
   render () {
     const imageStyle = {

@@ -1,11 +1,10 @@
+/**
+ * Entry point of React
+ */
+
 import React from 'react'
 import { render } from 'react-dom'
-
 import '../stylesheets/index.scss'
-import SearchBar from './components/search-bar'
-import MatchList from './components/match-list'
+import MatchTicker from './components/match-ticker'
 
-const { lives, upcomings } = window.matches
-render(<SearchBar />, document.getElementById('search'))
-render(<MatchList matches={lives} title='Live' />, document.getElementById('lives'))
-render(<MatchList matches={upcomings} title='Upcoming' />, document.getElementById('upcomings'))
+render(<MatchTicker {...window.matches} />, document.getElementById('main'))

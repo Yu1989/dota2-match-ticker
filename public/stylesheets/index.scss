@@ -23,15 +23,14 @@ body {
 }
 .main {
   width: $page-width;
-  margin: 0 auto;
+  margin: 35px auto;
 
   h2 {
     margin-top: 60px;
     margin-left: 25px;
   }
 }
-#search {
-  padding-top: 30px;
+.search {
   text-align: center;
 
   input {

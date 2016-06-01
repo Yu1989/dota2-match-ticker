@@ -6,10 +6,7 @@ html
   body
     include ./fork-on-github.pug
     .overlay
-    .main
-      #search
-      #lives
-      #upcomings
+    #main
     script(type='text/javascript').
       window.matches = !{JSON.stringify(data)}
     script(type='text/javascript' src='bundle.js' charset='utf-8')
