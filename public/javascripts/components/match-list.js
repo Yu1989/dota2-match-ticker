@@ -29,7 +29,7 @@ class MatchList extends Component {
       <div>
         <h2>{this.props.title}</h2>
         <ul className='match-list'>
-          {matches.length ? matches : <li className='dim'>No matches.</li>}
+          {matches.length ? matches : <li><span className='dim'>No matches.</span></li>}
         </ul>
       </div>
     )
