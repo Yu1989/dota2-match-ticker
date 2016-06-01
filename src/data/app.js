@@ -14,6 +14,9 @@ import { cacheFilename, interval } from '../config'
 const writeFile = Promise.promisify(fs.writeFile)
 let timer
 
+/**
+ * Scrape match data and cache in file
+ */
 const scrapeAndCache = async function () {
   try {
     const result = await scrape()
@@ -23,6 +26,9 @@ const scrapeAndCache = async function () {
   }
 }
 
+/**
+ * Scrape every certain period of time
+ */
 function loopScraping () {
   if (timer) return
   timer = setInterval(scrapeAndCache, interval)
@@ -34,6 +40,6 @@ function loopScraping () {
 }
 
 /**
- * Go
+ * Start looping
  */
 loopScraping()

@@ -20,6 +20,8 @@ export default async function getData () {
     obj.upcomings = obj.upcomings.reduce((prev, curr) => {
       curr.liveIn = curr.liveAt - now
       delete curr.liveAt
+
+      // Cache can be old. If a match should have been started, move it to lives
       if (curr.liveIn <= 0) {
         delete curr.liveIn
         obj.lives.push(curr)

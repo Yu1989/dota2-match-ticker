@@ -8,6 +8,9 @@ import { serverLog as log } from './logger'
 
 const app = new Koa()
 
+/**
+ * Middleware to capture errors
+ */
 app.use(async (ctx, next) => {
   try {
     await next()
