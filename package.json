@@ -1,6 +1,6 @@
 {
   "name": "dota2-match-ticker",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "An single page site with Dota2 match schedules, and nothing else.",
   "main": "dist/app.js",
   "scripts": {
@@ -36,6 +36,7 @@
     "bluebird": "^3.4.0",
     "bunyan": "^1.8.1",
     "cheerio": "^0.20.0",
+    "ioredis": "^2.0.1",
     "koa": "^2.0.0",
     "koa-router": "^7.0.1",
     "koa-static": "^3.0.0",
