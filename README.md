@@ -14,6 +14,7 @@ A minimal project built with big names:
 - React
 - Webpack
 - PM2
+- Redis
 
 -----
 
@@ -41,3 +42,4 @@ $ npm test
 ## Todo
 - Tests with [AVA](https://github.com/avajs/ava).
 - Optimize for mobile.
+- Static file caching.

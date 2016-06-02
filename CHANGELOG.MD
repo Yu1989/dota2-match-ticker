@@ -1,3 +1,6 @@
+## 1.3.0
+- Replaced file caching with redis for match data.
+
 ## 1.2.1
 - Fixed travis build failure by forcing npm to install latest version.
 - Simplified error handling.

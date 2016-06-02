@@ -22,3 +22,5 @@ app.use(router.routes())
 app.use(router.allowedMethods())
 
 app.listen(port)
+
+log.info(`Server listening on port ${port}`)
