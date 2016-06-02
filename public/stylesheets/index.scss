@@ -57,6 +57,9 @@ body {
       &.team1, &.team2 {
         width: 230px;
       }
+      &.team1, &.team2, &.tournament, &.tournament-img {
+        cursor: pointer;
+      }
       &.vs {
         width: 70px;
       }
