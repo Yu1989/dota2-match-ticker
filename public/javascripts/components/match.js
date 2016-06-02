@@ -29,16 +29,16 @@ class Match extends Component {
         <span className='team1' onClick={this.handleClickOnTeam.bind(this)}>
           {this.props.team1}
         </span>
-        <span className='vs dim'>
+        <span className='vs dim sm-text'>
           VS
         </span>
         <span className='team2' onClick={this.handleClickOnTeam.bind(this)}>
           {this.props.team2}
         </span>
-        <span className='live-in'>
+        <span className='live-in sm-text'>
           {this.props.liveIn || 'Live now'}
         </span>
-        <span className='tournament' onClick={this.handleClickOnTournament.bind(this)}>
+        <span className='tournament sm-text' onClick={this.handleClickOnTournament.bind(this)}>
           {this.props.tournament}
         </span>
         <span className='tournament-img' onClick={this.handleClickOnTournament.bind(this)}>

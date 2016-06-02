@@ -44,3 +44,6 @@ matches.cache
 
 # Other
 .DS_Store
+
+# Redis files
+dump.rdb

@@ -12,6 +12,17 @@ body {
   font-family: Georgia, "Bitstream Charter", serif;
   color: $white;
 }
+.sm-text {
+  font-size: 0.9rem;
+}
+.dim {
+  opacity: 0.5;
+}
+.page-view {
+  p {
+    text-align: center;
+  }
+}
 #main {
   width: $page-width;
   margin: 35px auto;
@@ -34,10 +45,6 @@ body {
 }
 .match-list {
   list-style: none;
-
-  .dim {
-    opacity: 0.5;
-  }
 
   li {
     height: 60px;
@@ -62,9 +69,6 @@ body {
       }
       &.vs {
         width: 70px;
-      }
-      &.tournament, &.live-in, &.vs {
-        font-size: 0.9rem;
       }
       &.tournament {
         width: 190px;
