@@ -12,7 +12,8 @@ class MatchTicker extends Component {
   }
 
   /**
-   * Handler for when user modifies keyword in search bar
+   * Handler for when keyword is modified,
+   * from direct typing in search bar or clicking on teams or tournament
    * Setting new state to trigger view refreshing
    * @param  {string} keyword - Modified keyword
    */
@@ -21,21 +22,24 @@ class MatchTicker extends Component {
   }
 
   render () {
+    const handleKeywordChange = this.handleKeywordChange.bind(this)
     return (
       <div>
         <SearchBar
           keyword={this.state.keyword}
-          onKeywordChange={this.handleKeywordChange.bind(this)}
+          onKeywordChange={handleKeywordChange}
         />
         <MatchList
+          title='Live'
           matches={this.props.lives}
           keyword={this.state.keyword}
-          title='Live'
+          onMatchClick={handleKeywordChange}
         />
         <MatchList
+          title='Upcoming'
           matches={this.props.upcomings}
           keyword={this.state.keyword}
-          title='Upcoming'
+          onMatchClick={handleKeywordChange}
         />
       </div>
     )
