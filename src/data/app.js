@@ -5,10 +5,10 @@
  */
 
 import 'babel-polyfill'
-import redis from '../services/redis'
 import scrape from './scrape'
+import cache from './cache'
 import { dataLog as log } from '../logger'
-import { cacheKey, interval } from '../config'
+import { interval } from '../config'
 
 let timer
 
@@ -18,8 +18,7 @@ let timer
 const scrapeAndCache = async function () {
   try {
     const result = await scrape()
-    await redis.set(cacheKey, JSON.stringify(result))
-    redis.expire(cacheKey, interval * 10)
+    await cache.set(result)
   } catch (err) {
     log.error({ err: err }, 'error with scraping or caching')
   }
@@ -33,7 +32,7 @@ const loopScraping = async function () {
   timer = setInterval(scrapeAndCache, interval)
 
   // If cache does not exist, scrape right away
-  if (!await redis.exists(cacheKey)) scrapeAndCache()
+  if (!await cache.exists()) scrapeAndCache()
 }
 
 /**
