@@ -5,7 +5,7 @@
 /**
  * Redis key to save cache to
  */
-const cacheKey = `matches`
+const cacheKey = 'matches'
 
 /**
  * Time interval for the scrape loop, unit: ms

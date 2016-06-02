@@ -42,3 +42,4 @@ $ npm test
 ## Todo
 - Tests with [AVA](https://github.com/avajs/ava).
 - Optimize for mobile.
+- Static file caching.
