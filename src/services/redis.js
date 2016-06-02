@@ -3,18 +3,18 @@
  */
 
 import Redis from 'ioredis'
-import { serverLog } from '../logger'
+import { serverLog as log } from '../logger'
 
 const redis = new Redis({
   keyPrefix: 'dmt:'
 })
 
 redis.on('connect', () => {
-  serverLog.info('connected to redis')
+  log.info('connected to redis')
 }).on('error', function (err) {
   // Log error once
   if (!this.errLogged) {
-    serverLog.error({ err: err }, 'failed to connect redis')
+    log.error({ err: err }, 'failed to connect redis')
     this.errLogged = true
   }
 }.bind({ errLogged: false }))

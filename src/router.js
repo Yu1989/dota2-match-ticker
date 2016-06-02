@@ -11,6 +11,7 @@ router.get('/', async (ctx, next) => {
   })
 
   // Increment page view
+  // TODO Move to middleware as a more general solution?
   redis.incr('pageView')
 })
 
