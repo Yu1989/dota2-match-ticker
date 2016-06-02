@@ -9,16 +9,10 @@ import { serverLog as log } from './logger'
 const app = new Koa()
 
 /**
- * Middleware to capture errors
+ * Capture and log errors
  */
-app.use(async (ctx, next) => {
-  try {
-    await next()
-  } catch (err) {
-    log.error({ err: err })
-    ctx.body = { message: err.message }
-    ctx.status = err.status || 500
-  }
+app.on('error', err => {
+  log.error({ err: err }, 'internal server error')
 })
 
 app.use(serve(`${__dirname}/../public/dist`))
