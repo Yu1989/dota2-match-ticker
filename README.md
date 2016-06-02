@@ -14,6 +14,7 @@ A minimal project built with big names:
 - React
 - Webpack
 - PM2
+- Redis
 
 -----
 

@@ -1,26 +1,25 @@
 /* global setInterval */
 
 /**
- * Scrape match data from Gosugamers and cache in file
+ * Scrape match data from Gosugamers and cache in redis
  */
 
 import 'babel-polyfill'
-import fs from 'fs'
-import Promise from 'bluebird'
+import redis from '../services/redis'
 import scrape from './scrape'
 import { dataLog as log } from '../logger'
-import { cacheFilename, interval } from '../config'
+import { cacheKey, interval } from '../config'
 
-const writeFile = Promise.promisify(fs.writeFile)
 let timer
 
 /**
- * Scrape match data and cache in file
+ * Scrape match data and cache in redis
  */
 const scrapeAndCache = async function () {
   try {
     const result = await scrape()
-    await writeFile(cacheFilename, JSON.stringify(result), 'utf8')
+    await redis.set(cacheKey, JSON.stringify(result))
+    redis.expire(cacheKey, interval * 10)
   } catch (err) {
     log.error({ err: err }, 'error with scraping or caching')
   }
@@ -29,14 +28,12 @@ const scrapeAndCache = async function () {
 /**
  * Scrape every certain period of time
  */
-function loopScraping () {
+const loopScraping = async function () {
   if (timer) return
   timer = setInterval(scrapeAndCache, interval)
 
-  // If cache file does not exist, scrape right away
-  fs.access(cacheFilename, err => {
-    if (err) scrapeAndCache()
-  })
+  // If cache does not exist, scrape right away
+  if (!await redis.exists(cacheKey)) scrapeAndCache()
 }
 
 /**
