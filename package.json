@@ -13,7 +13,10 @@
     "kill": "pm2 kill"
   },
   "standard": {
-    "parser": "babel-eslint"
+    "parser": "babel-eslint",
+    "ignore": [
+      "public/javascripts/lib"
+    ]
   },
   "repository": {
     "type": "git",
