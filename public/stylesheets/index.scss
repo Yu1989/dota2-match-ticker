@@ -61,10 +61,10 @@ body {
       white-space: nowrap;
       text-overflow: ellipsis;
 
-      &.team1, &.team2 {
+      &.team {
         width: 230px;
       }
-      &.team1, &.team2, &.tournament, &.tournament-img {
+      &.team, &.tournament, &.tournament-img {
         cursor: pointer;
       }
       &.vs {
