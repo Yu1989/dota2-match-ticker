@@ -18,7 +18,7 @@ let timer
 const scrapeAndCache = async function () {
   try {
     const result = await scrape()
-    await cache.set(result)
+    if (result) await cache.set(result)
   } catch (err) {
     log.error({ err: err }, 'error with scraping or caching')
   }
