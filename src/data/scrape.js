@@ -134,7 +134,6 @@ async function scrape () {
     return { lives, upcomings }
   } catch (err) {
     log.error({ err: err }, 'scraping error')
-    return { lives: [], upcomings: [] }
   }
 }
 

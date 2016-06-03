@@ -1,3 +1,7 @@
+## 1.3.1
+- Visually differentiate TBD teams.
+- Fixed failed scrape still overwriting cache with empty lists.
+
 ## 1.3.0
 - Replaced file caching with redis for match data.
 
