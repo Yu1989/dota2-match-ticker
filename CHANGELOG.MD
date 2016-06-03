@@ -1,3 +1,6 @@
+## 1.4.0
+- Auto-refresh data on page periodically.
+
 ## 1.3.1
 - Visually differentiate TBD teams.
 - Fixed failed scrape still overwriting cache with empty lists.
