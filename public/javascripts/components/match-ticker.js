@@ -1,6 +1,11 @@
+/* global setInterval, $ */
+
 import React, { Component } from 'react'
 import SearchBar from './search-bar'
 import MatchList from './match-list'
+
+// Url to fetch match data as json
+const dataUrl = '/matches.json'
 
 /**
  * Most outter component containing search bar and two lists
@@ -8,7 +13,24 @@ import MatchList from './match-list'
 class MatchTicker extends Component {
   constructor (props) {
     super(props)
-    this.state = { keyword: '' }
+
+    this.state = {
+      keyword: '',
+      matches: props.matches
+    }
+    this.refreshWithInterval(props.interval)
+  }
+
+  /**
+   * Refresh with new data from server every certain period of time
+   * @param  {number} interval - Refreshing interval, unit: ms
+   */
+  refreshWithInterval (interval) {
+    setInterval(() => {
+      $.getJSON(dataUrl, (matches) => {
+        this.setState({ matches: matches })
+      })
+    }, interval)
   }
 
   /**
@@ -31,13 +53,13 @@ class MatchTicker extends Component {
         />
         <MatchList
           title='Live'
-          matches={this.props.lives}
+          matches={this.state.matches.lives}
           keyword={this.state.keyword}
           onMatchClick={handleKeywordChange}
         />
         <MatchList
           title='Upcoming'
-          matches={this.props.upcomings}
+          matches={this.state.matches.upcomings}
           keyword={this.state.keyword}
           onMatchClick={handleKeywordChange}
         />

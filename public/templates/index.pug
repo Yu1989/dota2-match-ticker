@@ -8,7 +8,10 @@ html
     include ./fork-on-github.pug
     #main
     include ./page-view.pug
-    
+
     script(type='text/javascript').
-      window.matches = !{JSON.stringify(data)}
+      window.dmt = {
+        matches: !{JSON.stringify(data)},
+        interval: #{interval}
+      }
     script(type='text/javascript' src='bundle.js' charset='utf-8')
