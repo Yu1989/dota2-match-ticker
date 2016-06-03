@@ -19,20 +19,34 @@ class Match extends Component {
     this.props.onComponentClick(this.props.tournament)
   }
 
+  /**
+   * When team is 'to be decided', add class 'dim'
+   * @param  {string} team - Team name
+   * @return {string} Class string for the team span
+   */
+  classForTeam (team) {
+    return team.toLowerCase() === 'to be decided'
+      ? 'team dim'
+      : 'team'
+  }
+
   render () {
     // Set image as background-image for better control
     const imageStyle = {
       backgroundImage: `url(${this.props.tournamentImgUrl})`
     }
+    const team1Class = this.classForTeam(this.props.team1)
+    const team2Class = this.classForTeam(this.props.team2)
+
     return (
       <li>
-        <span className='team1' onClick={this.handleClickOnTeam.bind(this)}>
+        <span className={team1Class} onClick={this.handleClickOnTeam.bind(this)}>
           {this.props.team1}
         </span>
         <span className='vs dim sm-text'>
           VS
         </span>
-        <span className='team2' onClick={this.handleClickOnTeam.bind(this)}>
+        <span className={team2Class} onClick={this.handleClickOnTeam.bind(this)}>
           {this.props.team2}
         </span>
         <span className='live-in sm-text'>

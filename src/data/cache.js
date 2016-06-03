@@ -8,12 +8,14 @@ async function set (matches) {
 }
 
 async function get () {
+  const defaultVal = { lives: [], upcomings: [] }
+
   try {
-    return JSON.parse(await redis.get(cacheKey))
+    return JSON.parse(await redis.get(cacheKey)) || defaultVal
   } catch (err) {
     // Log error and return empty result obj
     log.error({ err: err }, 'failed to parse cache')
-    return { lives: [], upcomings: [] }
+    return defaultVal
   }
 }
 
