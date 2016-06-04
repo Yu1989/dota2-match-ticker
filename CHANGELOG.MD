@@ -1,3 +1,6 @@
+## 1.6.0
+- Added etag, so 304 is returned for conditional gets.
+
 ## 1.5.0
 - Added static file cache, e.g., js bundle, images.
 
