@@ -17,7 +17,7 @@ A minimal project built with big names:
 - **AVA** as test framework
 - **Redis** for data caching
 
-\* Hopefully for some of you, it can serve as a simple demo for how to mix and make these trending frameworks/tools work together.
+\* Hopefully for some of you, it'll serve as a simple demo for how to mix and make these trending frameworks/tools work together.
 
 -----
 
@@ -40,7 +40,6 @@ View [package.json](https://github.com/Yu1989/dota2-match-ticker/blob/master/pac
 ```
 $ npm test
 ```
-\* Only testing coding styles right now.
 
 ## Todo
 - More tests.
