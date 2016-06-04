@@ -5,7 +5,7 @@ import { cacheKey, interval } from '../config'
 export default {
   async set (matches) {
     await redis.set(cacheKey, JSON.stringify(matches))
-    await redis.expire(cacheKey, interval * 10)
+    await redis.expire(cacheKey, interval * 5)
   },
 
   async get () {
