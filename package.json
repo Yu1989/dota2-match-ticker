@@ -1,11 +1,11 @@
 {
   "name": "dota2-match-ticker",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "An single page site with Dota2 match schedules, and nothing else.",
   "main": "dist/app.js",
   "scripts": {
     "build": "rm -rf dist; babel src -d dist; NODE_ENV=production webpack --progress --colors",
-    "test": "standard",
+    "test": "standard & NODE_ENV=test ava",
     "dev": "pm2 start bin/development.json; webpack --watch",
     "logs": "pm2 logs --raw | bunyan -o short",
     "deploy": "pm2 deploy bin/production.json production",
@@ -17,6 +17,17 @@
     "ignore": [
       "public/javascripts/lib"
     ]
+  },
+  "ava": {
+    "files": [
+      "tests/**/*.js"
+    ],
+    "failFast": true,
+    "require": [
+      "babel-register",
+      "babel-polyfill"
+    ],
+    "babel": "inherit"
   },
   "repository": {
     "type": "git",
@@ -52,6 +63,7 @@
     "request-promise": "^3.0.0"
   },
   "devDependencies": {
+    "ava": "^0.15.1",
     "babel-cli": "^6.9.0",
     "babel-core": "^6.9.0",
     "babel-eslint": "^6.0.4",

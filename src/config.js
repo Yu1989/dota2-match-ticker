@@ -5,16 +5,19 @@
 /**
  * Redis key to save cache to
  */
-const cacheKey = 'matches'
+export const cacheKey = 'matches'
 
 /**
  * Time interval for the scrape loop, unit: ms
  */
-const interval = (process.env.interval || 15) * 60 * 1000
+export const interval = (process.env.interval || 15) * 60 * 1000
 
 /**
  * Port for the server to lisent to
  */
-const port = process.env.PORT || 3000
+export const port = process.env.PORT || 3000
 
-export { cacheKey, interval, port }
+/**
+ * Different redis db for test and other envs
+ */
+export const redisDb = process.env.NODE_ENV === 'test' ? 4 : 0
