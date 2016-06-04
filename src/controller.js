@@ -1,12 +1,14 @@
 import getData from './data/get'
-import { interval } from './config'
 import redis from './services/redis'
+import { interval } from './config'
+import { getJsUrl } from './util'
 
 export async function renderPage (ctx, next) {
   await ctx.render('index', {
     data: await getData(),
     pageView: await redis.get('pageView'),
-    interval: interval
+    interval: interval,
+    jsUrl: await getJsUrl()
   })
 
   // Increment page view

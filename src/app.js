@@ -15,8 +15,7 @@ app.on('error', err => {
   log.error({ err: err }, 'internal server error')
 })
 
-app.use(serve(`${__dirname}/../public/dist`))
-app.use(serve(`${__dirname}/../public/images`))
+app.use(serve(`${__dirname}/../public/dist`, { maxage: 1000 * 3600 * 24 * 365 }))
 app.use(views(`${__dirname}/../public/templates`, { extension: 'pug' }))
 app.use(router.routes())
 app.use(router.allowedMethods())
