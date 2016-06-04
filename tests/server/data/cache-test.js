@@ -10,7 +10,7 @@ test.before(async t => {
   await cache.set(matches)
 })
 
-test('cache should exist now', async t => {
+test('cache should exist', async t => {
   t.is(await cache.exists(), true)
 })
 
