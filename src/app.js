@@ -1,5 +1,7 @@
 import 'babel-polyfill'
 import Koa from 'koa'
+import etag from 'koa-etag'
+import conditional from 'koa-conditional-get'
 import views from 'koa-views'
 import serve from 'koa-static'
 import router from './router'
@@ -16,8 +18,12 @@ app.keys = [ 'keys_should_be_hidden', 'but_im_just_a_demo' ]
 /**
  * Middlewares
  */
+app.use(conditional())
+app.use(etag())
+
 app.use(serve(`${__dirname}/../public/dist`, { maxage: 1000 * 3600 * 24 * 365 }))
 app.use(views(`${__dirname}/../public/templates`, { extension: 'pug' }))
+
 app.use(router.routes())
 app.use(router.allowedMethods())
 

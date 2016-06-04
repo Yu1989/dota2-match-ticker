@@ -1,6 +1,6 @@
 {
   "name": "dota2-match-ticker",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "dependencies": {
     "@f/defaults": {
       "version": "1.0.1",
@@ -1566,6 +1566,11 @@
       "version": "2.0.2",
       "from": "esutils@>=2.0.2 <3.0.0",
       "resolved": "https://registry.npmjs.org/esutils/-/esutils-2.0.2.tgz"
+    },
+    "etag": {
+      "version": "1.7.0",
+      "from": "etag@>=1.3.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/etag/-/etag-1.7.0.tgz"
     },
     "event-emitter": {
       "version": "0.3.4",
@@ -3343,6 +3348,16 @@
       "version": "3.1.0",
       "from": "koa-compose@>=3.0.0 <4.0.0",
       "resolved": "https://registry.npmjs.org/koa-compose/-/koa-compose-3.1.0.tgz"
+    },
+    "koa-conditional-get": {
+      "version": "1.0.3",
+      "from": "koa-conditional-get@latest",
+      "resolved": "https://registry.npmjs.org/koa-conditional-get/-/koa-conditional-get-1.0.3.tgz"
+    },
+    "koa-etag": {
+      "version": "2.1.1",
+      "from": "koa-etag@latest",
+      "resolved": "https://registry.npmjs.org/koa-etag/-/koa-etag-2.1.1.tgz"
     },
     "koa-router": {
       "version": "7.0.1",
