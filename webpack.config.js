@@ -4,7 +4,7 @@ var webpack = require('webpack')
 var config = {
   entry: './public/javascripts/entry.js',
   output: {
-    path: './public/dist',
+    path: './public/dist/js',
     filename: 'bundle.js'
   },
   module: {

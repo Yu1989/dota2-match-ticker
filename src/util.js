@@ -19,8 +19,8 @@ export const getJsUrl = (function () {
 
   return async function () {
     if (!cached) {
-      const files = await readdir(`${__dirname}/../public/dist`)
-      cached = files.find(file => /^bundle\..*js$/.test(file))
+      const files = await readdir(`${__dirname}/../public/dist/js`)
+      cached = '/js/' + files.find(file => /^bundle\..*js$/.test(file))
     }
     return cached
   }
