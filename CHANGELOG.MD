@@ -1,3 +1,6 @@
+## 1.5.0
+- Added static file cache, e.g., js bundle, images.
+
 ## 1.4.1
 - Added AVA as testing framework. More tests to come.
 
