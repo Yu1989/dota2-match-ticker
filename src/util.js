@@ -3,7 +3,9 @@
  */
 
 import Promise from 'bluebird'
+import path from 'path'
 import fs from 'fs'
+import { output } from '../webpack.config.js'
 
 const readdir = Promise.promisify(fs.readdir)
 
@@ -19,7 +21,8 @@ export const getJsUrl = (function () {
 
   return async function () {
     if (!cached) {
-      const files = await readdir(`${__dirname}/../public/dist/js`)
+      const folder = path.resolve(__dirname, '..', output.path)
+      const files = await readdir(folder)
       cached = '/js/' + files.find(file => /^bundle\..*js$/.test(file))
     }
     return cached

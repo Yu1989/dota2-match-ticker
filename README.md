@@ -44,4 +44,5 @@ $ npm test
 ## Todo
 - More tests.
 - Optimize for mobile.
-- Static file caching.
+- Return 304 for conditional refresh (eTag?).
+- Utilize shell scripts to clean up npm scripts a bit.

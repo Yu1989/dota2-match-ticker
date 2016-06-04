@@ -1,6 +1,6 @@
 {
   "name": "dota2-match-ticker",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "dependencies": {
     "@f/defaults": {
       "version": "1.0.1",
