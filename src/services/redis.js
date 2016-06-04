@@ -3,10 +3,12 @@
  */
 
 import Redis from 'ioredis'
+import { redisDb as db } from '../config'
 import { serverLog as log } from '../logger'
 
 const redis = new Redis({
-  keyPrefix: 'dmt:'
+  keyPrefix: 'dmt:',
+  db: db
 })
 
 redis.on('connect', () => {

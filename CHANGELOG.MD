@@ -1,3 +1,6 @@
+## 1.4.1
+- Added AVA as testing framework. More tests to come.
+
 ## 1.4.0
 - Auto-refresh data on page periodically.
 
