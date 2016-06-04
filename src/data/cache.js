@@ -16,7 +16,6 @@ export default {
     } catch (err) {
       // Log error and return empty result obj
       log.error({ err: err }, 'failed to parse cache')
-      console.log(await redis.get(cacheKey))
       return defaultVal
     }
   },
