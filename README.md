@@ -9,12 +9,15 @@ Source code for [Dota2 Match Ticker](http://dota.jiangyu.rocks) - an single page
 -----
 
 A minimal project built with big names:
-- Babel
-- Koa 2
-- React
-- Webpack
-- PM2
-- Redis
+- **Babel** for writing ES7
+- **Koa 2** as server framework
+- **React** as front-end framework
+- **Webpack** for packing assets
+- **PM2** for app management and deployment
+- **AVA** as test framework
+- **Redis** for data caching
+
+\* Hopefully for some of you, it can serve as a simple demo for how to mix and make these trending frameworks/tools work together.
 
 -----
 
@@ -40,6 +43,6 @@ $ npm test
 \* Only testing coding styles right now.
 
 ## Todo
-- Tests with [AVA](https://github.com/avajs/ava).
+- More tests.
 - Optimize for mobile.
 - Static file caching.
