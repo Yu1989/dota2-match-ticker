@@ -2,7 +2,7 @@
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
-Source code for [Dota2 Match Ticker](http://dota.jiangyu.rocks) - an single page site with Dota2 match schedules, and nothing else.
+Source code for [Dota2 Match Ticker](http://dota.jiangyu.rocks) - a single page site with Dota2 match schedules, and nothing else.
 
 [Dota2赛程表](http://dota.jiangyu.rocks)的源码.
 
@@ -45,3 +45,4 @@ $ npm test
 - More tests.
 - Optimize for mobile.
 - Utilize shell scripts to clean up npm scripts a bit.
+- React animations, just for fun.
