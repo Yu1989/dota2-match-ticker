@@ -25,8 +25,7 @@ class MatchList extends Component {
 
   render () {
     const matches = this.searchMatches(this.props.keyword).map((m, i) => {
-      const key = `${m.team1}.${m.team2}.${m.tournament}.${m.liveIn}.${i}`
-      return <Match {...m} key={key} onComponentClick={this.props.onMatchClick} />
+      return <Match {...m} key={m.id} onComponentClick={this.props.onMatchClick} />
     })
     return (
       <div>
