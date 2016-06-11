@@ -57,6 +57,7 @@ function liveInToLiveAt (liveIn) {
  * @return {Object} Match object
  */
 async function getMatch ($e) {
+  const id = $e.find('td:first-child a').attr('href').match(/\/([0-9]+)-[^/]+$/)[1]
   let team1 = $e.find('.opp1 span:first-child').text()
   let team2 = $e.find('.opp2 span:last-child').text()
 
@@ -70,7 +71,7 @@ async function getMatch ($e) {
     $e.find('td.tournament a').attr('href').match(/-([^/]*)/)[1]
   )
   const tournamentImgUrl = baseUrl + $e.find('td.tournament img').attr('src')
-  const match = {team1, team2, tournament, tournamentImgUrl}
+  const match = { id, team1, team2, tournament, tournamentImgUrl }
 
   // Get live-in if exists and convert to live-at
   const liveIn = $e.find('.live-in').text().trim()
@@ -106,7 +107,7 @@ async function getUpcomings ($) {
   const pageNos = $('#col1 .box:nth-child(2) .pages a')
     .map((i, e) => +$(e).text().trim() || 0)
     .get()
-  const maxPage = _.max(pageNos)
+  const maxPage = _.max(pageNos) || 1
 
   // Scrape one by one
   for (let i = 1; i <= maxPage; ++i) {

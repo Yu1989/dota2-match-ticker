@@ -1,3 +1,6 @@
+## 1.7.0
+- Now you can highlight matches and it is remembered by cookie.
+
 ## 1.6.0
 - Added etag, so 304 is returned for conditional gets.
 

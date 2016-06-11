@@ -1,5 +1,6 @@
 $white: #ecf0f1;
 $red: #e74c3c;
+$gold: #fdd017;
 $black-border: 1px solid rgba(0, 0, 0, 0.5);
 $page-width: 1020px;
 
@@ -54,6 +55,11 @@ body {
     &:hover {
       border-bottom:  1px solid darken($red, 20%);
     }
+    &.starred {
+      .team, .tournament {
+        color: $gold;
+      }
+    }
     span {
       display: inline-block;
       padding-right: 10px;
@@ -64,11 +70,16 @@ body {
       &.team {
         width: 230px;
       }
-      &.team, &.tournament, &.tournament-img {
+      &.team, &.vs, &.tournament, &.tournament-img {
         cursor: pointer;
       }
       &.vs {
         width: 70px;
+
+        &:hover {
+          opacity: 1;
+          color: $gold;
+        }
       }
       &.tournament {
         width: 190px;
