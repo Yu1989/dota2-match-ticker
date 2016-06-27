@@ -8,11 +8,12 @@ html
   body
     include ./fork-on-github.pug
     #main
-    include ./page-view.pug
 
     script(type='text/javascript').
       window.dmt = {
         matches: !{JSON.stringify(data)},
-        interval: #{interval}
+        interval: #{interval},
+        pageView: #{pageView},
+        locales: !{JSON.stringify(locales)}
       }
     script(type='text/javascript' src=jsUrl charset='utf-8')

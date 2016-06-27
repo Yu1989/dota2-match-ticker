@@ -3,6 +3,8 @@
 import React, { Component } from 'react'
 import SearchBar from './search-bar'
 import MatchList from './match-list'
+import Footer from './footer'
+import lan from '../util/locales'
 
 // Url to fetch match data as json
 const dataUrl = '/matches.json'
@@ -15,6 +17,7 @@ class MatchTicker extends Component {
     super(props)
 
     this.state = {
+      language: lan.get(),
       keyword: '',
       matches: props.matches
     }
@@ -43,6 +46,11 @@ class MatchTicker extends Component {
     this.setState({ keyword })
   }
 
+  hangleLanguageChange (language) {
+    lan.set(language)
+    this.setState({ language })
+  }
+
   render () {
     const handleKeywordChange = this.handleKeywordChange.bind(this)
     return (
@@ -52,16 +60,20 @@ class MatchTicker extends Component {
           onKeywordChange={handleKeywordChange}
         />
         <MatchList
-          title='Live'
+          title={lan('liveTitle')}
           matches={this.state.matches.lives}
           keyword={this.state.keyword}
           onMatchClick={handleKeywordChange}
         />
         <MatchList
-          title='Upcoming'
+          title={lan('upcomingTitle')}
           matches={this.state.matches.upcomings}
           keyword={this.state.keyword}
           onMatchClick={handleKeywordChange}
+        />
+        <Footer
+          pageView={this.props.pageView}
+          onLanguageChange={handleLanguageChange}
         />
       </div>
     )

@@ -1,5 +1,6 @@
 import getData from './data/get'
 import redis from './services/redis'
+import locales from './locales'
 import { interval } from './config'
 import { getJsUrl } from './util'
 
@@ -8,6 +9,7 @@ export async function renderPage (ctx, next) {
     data: await getData(),
     pageView: await redis.get('pageView'),
     interval: interval,
+    locales: locales,
     jsUrl: await getJsUrl()
   })
 

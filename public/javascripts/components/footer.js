@@ -4,7 +4,7 @@ import lan from '../util/locales'
 /**
  * Component that provides a text input for keyword
  */
-class SearchBar extends Component {
+class Footer extends Component {
 
   /**
    * Handler for when user modifies keyword in search bar
@@ -17,17 +17,13 @@ class SearchBar extends Component {
 
   render () {
     return (
-      <div className='search'>
-        <input
-          type='text'
-          placeholder={lan('searchPlaceholder')}
-          ref='search'
-          value={this.props.keyword}
-          onChange={this.handleChange.bind(this)}
-        />
-      </div>
+      <footer className='dim sm-text'>
+        <span>{this.props.pageView} {lan('pageView')}</span>
+        <span className='language'>en</span>
+        <span className='language'>zh</span>
+      </footer>
     )
   }
 }
 
-export default SearchBar
+export default Footer

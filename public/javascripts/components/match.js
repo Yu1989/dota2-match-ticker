@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import lan from '../util/locales'
 import { isStared, star, unstar } from '../util/stars'
 
 /**
@@ -66,7 +67,7 @@ class Match extends Component {
           {this.props.team2}
         </span>
         <span className='live-in sm-text'>
-          {this.props.liveIn || 'Live now'}
+          {this.props.liveIn || lan('liveNow')}
         </span>
         <span className='tournament sm-text' onClick={this.handleClickOnTournament.bind(this)}>
           {this.props.tournament}
