@@ -46,13 +46,15 @@ class MatchTicker extends Component {
     this.setState({ keyword })
   }
 
-  hangleLanguageChange (language) {
+  handleLanguageChange (language) {
     lan.set(language)
     this.setState({ language })
   }
 
   render () {
     const handleKeywordChange = this.handleKeywordChange.bind(this)
+    const handleLanguageChange = this.handleLanguageChange.bind(this)
+
     return (
       <div>
         <SearchBar

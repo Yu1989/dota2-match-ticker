@@ -12,7 +12,7 @@ let lan = cookie.get(key) || 'en'
  * Get string per given key and current language
  */
 module.exports = function (key) {
-  return window.locales[lan][key] || 'undefined'
+  return window.dmt.locales[lan][key] || 'undefined'
 }
 
 /**
