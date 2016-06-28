@@ -21,7 +21,7 @@ class Footer extends Component {
         <span>{this.props.pageView} {lan('pageView')}</span>
         <span>
           <a href='#' data-lan='en' onClick={handleLanguageChange}>English</a>
-          <a href='#' data-lan='zh' onClick={handleLanguageChange}>中文</a>
+          <a href='#' data-lan='zh-cn' onClick={handleLanguageChange}>中文</a>
         </span>
       </footer>
     )
