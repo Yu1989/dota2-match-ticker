@@ -1,3 +1,7 @@
+## 1.8.0
+- Added i18n support, en and zh-cn for now.
+- Moved live-in calculation to client-side.
+
 ## 1.7.0
 - Now you can highlight matches and it is remembered by cookie.
 
