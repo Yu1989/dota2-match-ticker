@@ -4,15 +4,17 @@
  */
 
 import cookie from './cookie'
+import moment from 'moment'
 
 const key = 'lan'
-let lan = cookie.get(key) || 'en'
+let lan
 
 /**
  * Get string per given key and current language
  */
 module.exports = function (key) {
-  return window.locales[lan][key] || 'undefined'
+  const locale = window.dmt.locales[lan] || window.dmt.locales['en']
+  return locale[key] || 'undefined'
 }
 
 /**
@@ -28,4 +30,10 @@ module.exports.get = function () {
 module.exports.set = function (language = 'en') {
   lan = language
   cookie.set(key, language)
+  moment.locale(language)
 }
+
+/**
+ * Init
+ */
+module.exports.set(cookie.get(key) || 'en')

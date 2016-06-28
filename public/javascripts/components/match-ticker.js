@@ -1,5 +1,6 @@
 /* global setInterval, $ */
 
+import moment from 'moment'
 import React, { Component } from 'react'
 import SearchBar from './search-bar'
 import MatchList from './match-list'
@@ -25,6 +26,32 @@ class MatchTicker extends Component {
   }
 
   /**
+   * Check start time of upcoming matches
+   * If a match should be started by now, move it to lives
+   * @param  {Object} matches - Object of matches
+   * @return {Object} Processed matches
+   */
+  preprocess (matches) {
+    const now = +moment().format('X')
+
+    matches.upcomings = matches.upcomings.reduce((prev, curr) => {
+      let liveIn = curr.liveAt - now
+
+      // Cache can be old. If a match should have been started, move it to lives
+      if (liveIn <= 0) {
+        matches.lives.push(curr)
+      } else {
+        liveIn = moment.duration(liveIn, 'seconds').humanize()
+        curr.liveIn = liveIn.charAt(0).toUpperCase() + liveIn.slice(1)
+        prev.push(curr)
+      }
+      return prev
+    }, [])
+
+    return matches
+  }
+
+  /**
    * Refresh with new data from server every certain period of time
    * @param  {number} interval - Refreshing interval, unit: ms
    */
@@ -46,13 +73,16 @@ class MatchTicker extends Component {
     this.setState({ keyword })
   }
 
-  hangleLanguageChange (language) {
+  handleLanguageChange (language) {
     lan.set(language)
     this.setState({ language })
   }
 
   render () {
+    const { lives, upcomings } = this.preprocess(this.state.matches)
     const handleKeywordChange = this.handleKeywordChange.bind(this)
+    const handleLanguageChange = this.handleLanguageChange.bind(this)
+
     return (
       <div>
         <SearchBar
@@ -61,13 +91,13 @@ class MatchTicker extends Component {
         />
         <MatchList
           title={lan('liveTitle')}
-          matches={this.state.matches.lives}
+          matches={lives}
           keyword={this.state.keyword}
           onMatchClick={handleKeywordChange}
         />
         <MatchList
           title={lan('upcomingTitle')}
-          matches={this.state.matches.upcomings}
+          matches={upcomings}
           keyword={this.state.keyword}
           onMatchClick={handleKeywordChange}
         />

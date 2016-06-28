@@ -1,4 +1,4 @@
-import getData from './data/get'
+import cache from './data/cache'
 import redis from './services/redis'
 import locales from './locales'
 import { interval } from './config'
@@ -6,7 +6,7 @@ import { getJsUrl } from './util'
 
 export async function renderPage (ctx, next) {
   await ctx.render('index', {
-    data: await getData(),
+    data: await cache.get(),
     pageView: await redis.get('pageView'),
     interval: interval,
     locales: locales,
@@ -22,5 +22,5 @@ export async function renderPage (ctx, next) {
  * Send match data as json
  */
 export async function sendData (ctx, next) {
-  ctx.body = await getData()
+  ctx.body = await cache.get()
 }

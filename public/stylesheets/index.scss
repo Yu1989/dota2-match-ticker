@@ -20,8 +20,16 @@ body {
   opacity: 0.5;
 }
 footer {
-  p {
-    text-align: center;
+  text-align: center;
+
+  span {
+    margin: 0 15px;
+
+    a {
+      margin: 0 5px;
+      color: white;
+      text-decoration: none;
+    }
   }
 }
 #main {
