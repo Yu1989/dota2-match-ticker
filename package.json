@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "rm -rf dist; rm -rf public/dist;",
     "copy-image": "mkdir public/dist; cp -R public/images public/dist/images",
-    "build": "npm run clean; babel src -d dist; npm run copy-image; NODE_ENV=production webpack --progress --colors",
+    "build": "npm run clean; babel src -d dist --copy-files; npm run copy-image; NODE_ENV=production webpack --progress --colors",
     "test": "standard & NODE_ENV=test ava",
     "dev": "npm run clean; npm run copy-image; pm2 start bin/development.json; webpack --watch",
     "logs": "pm2 logs --raw | bunyan -o short",
