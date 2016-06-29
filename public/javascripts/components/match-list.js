@@ -1,5 +1,6 @@
-import Match from './match'
 import React, { Component } from 'react'
+import { StaggeredMotion, spring } from 'react-motion'
+import Match from './match'
 
 /**
  * Component of a match list, lives or upcomings
@@ -24,15 +25,42 @@ class MatchList extends Component {
   }
 
   render () {
-    const matches = this.searchMatches(this.props.keyword).map((m, i) => {
-      return <Match {...m} key={m.id} onComponentClick={this.props.onMatchClick} />
-    })
+    const matches = this.searchMatches(this.props.keyword)
+    let matchList
+
+    if (!matches.length) {
+      matchList = (
+        <ul className='match-list'>
+          <li><span className='dim'>No matches.</span></li>
+        </ul>
+      )
+    } else {
+      const defaultStyles = []
+      for (let i = 0; i < matches.length; ++i) defaultStyles.push({ opacity: 0 })
+
+      matchList = (
+        <StaggeredMotion
+          defaultStyles={defaultStyles}
+          styles={prevInterpolatedStyles => prevInterpolatedStyles.map((_, i) => {
+            return i === 0
+              ? { opacity: spring(1) }
+              : { opacity: spring(prevInterpolatedStyles[i - 1].opacity) }
+          })}>
+            {interpolatingStyles =>
+              <ul className='match-list'>
+                {interpolatingStyles.map((style, i) =>
+                  <Match {...matches[i]} key={matches[i].id} style={style} onComponentClick={this.props.onMatchClick} />
+                )}
+              </ul>
+            }
+        </StaggeredMotion>
+      )
+    }
+
     return (
       <div>
         <h2>{this.props.title}</h2>
-        <ul className='match-list'>
-          {matches.length ? matches : <li><span className='dim'>No matches.</span></li>}
-        </ul>
+        {matchList}
       </div>
     )
   }
