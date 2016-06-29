@@ -1,7 +1,6 @@
 import test from 'ava'
 import moment from 'moment'
-import getData from '../../../src/data/get'
-import cache from '../../../src/data/cache'
+import MatchTicker from '../../../public/javascripts/components/match-ticker'
 
 const matches = {
   lives: [],
@@ -14,10 +13,7 @@ let lives
 let upcomings
 
 test.before(async t => {
-  // Stub cache.get
-  cache.get = () => matches
-
-  const final = await getData()
+  const final = MatchTicker.prototype.preprocess(matches)
   lives = final.lives
   upcomings = final.upcomings
 })
@@ -25,11 +21,6 @@ test.before(async t => {
 test('old upcomings should be moved to lives', t => {
   t.is(lives.length, 1)
   t.is(upcomings.length, 1)
-})
-
-test('liveAt should be removed', t => {
-  t.true(lives[0].liveAt == null)
-  t.true(upcomings[0].liveAt == null)
 })
 
 test('liveIn should be added for and only for upcomings', t => {
