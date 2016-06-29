@@ -37,15 +37,18 @@ class MatchList extends Component {
       )
     } else {
       const defaultStyles = []
-      for (let i = 0; i < matches.length; ++i) defaultStyles.push({ opacity: 0 })
+      for (let i = 0; i < matches.length; ++i) defaultStyles.push({ height: 0, opacity: 0 })
 
       matchList = (
         <StaggeredMotion
           defaultStyles={defaultStyles}
           styles={prevInterpolatedStyles => prevInterpolatedStyles.map((_, i) => {
             return i === 0
-              ? { opacity: spring(1) }
-              : { opacity: spring(prevInterpolatedStyles[i - 1].opacity) }
+              ? { height: 60, opacity: spring(1) }
+              : {
+                height: spring(prevInterpolatedStyles[i - 1].height),
+                opacity: spring(prevInterpolatedStyles[i - 1].opacity)
+              }
           })}>
             {interpolatingStyles =>
               <ul className='match-list'>

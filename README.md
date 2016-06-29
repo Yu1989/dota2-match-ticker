@@ -11,7 +11,7 @@ Source code for [Dota2 Match Ticker](http://dota.jiangyu.rocks) - a single page 
 A minimal project built with big names:
 - **Babel** for writing ES7
 - **Koa 2** as server framework
-- **React** as front-end framework
+- **React** as front-end framework & [**React-motion**](https://github.com/chenglou/react-motion) for animations
 - **Webpack** for packing assets
 - **PM2** for app management and deployment
 - **AVA** as test framework
