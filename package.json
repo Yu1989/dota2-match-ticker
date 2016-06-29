@@ -1,6 +1,6 @@
 {
   "name": "dota2-match-ticker",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "An single page site with Dota2 match schedules, and nothing else.",
   "main": "dist/app.js",
   "scripts": {
@@ -66,6 +66,7 @@
     "pug": "^2.0.0-alpha8",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
+    "react-motion": "^0.4.4",
     "request-promise": "^3.0.0"
   },
   "devDependencies": {

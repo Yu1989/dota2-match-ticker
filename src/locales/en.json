@@ -6,5 +6,6 @@
   "searchPlaceholder": "Search",
   "pageView": "Page Views",
   "LastUpdatedAt": "Last updated at",
-  "showResult": "Show"
+  "showResult": "Show",
+  "noMatches": "No matches."
 }

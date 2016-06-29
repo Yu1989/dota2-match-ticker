@@ -56,7 +56,7 @@ class Match extends Component {
     const liClass = this.state.starred ? 'starred' : ''
 
     return (
-      <li className={liClass}>
+      <li className={liClass} style={this.props.style}>
         <span className={team1Class} onClick={this.handleClickOnTeam.bind(this)}>
           {this.props.team1}
         </span>
