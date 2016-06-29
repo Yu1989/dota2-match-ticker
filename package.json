@@ -22,12 +22,14 @@
   },
   "ava": {
     "files": [
-      "tests/**/*.js"
+      "tests/server/**/*.js",
+      "tests/client/**/*.js"
     ],
     "failFast": true,
     "require": [
       "babel-register",
-      "babel-polyfill"
+      "babel-polyfill",
+      "./tests/util/setup-browser-env.js"
     ],
     "babel": "inherit"
   },
@@ -79,6 +81,7 @@
     "babel-preset-stage-3": "^6.5.0",
     "css-loader": "^0.23.1",
     "gulp": "^3.9.1",
+    "jsdom": "^9.3.0",
     "mocha": "^2.5.3",
     "node-sass": "^3.7.0",
     "pm2": "^1.1.3",
