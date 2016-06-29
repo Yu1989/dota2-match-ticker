@@ -1,3 +1,6 @@
+## 1.9.0
+- Added react-motion for animations.
+
 ## 1.8.0
 - Added i18n support, en and zh-cn for now.
 - Moved live-in calculation to client-side.
