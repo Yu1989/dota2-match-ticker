@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StaggeredMotion, spring } from 'react-motion'
 import Match from './match'
+import lan from '../util/locales'
 
 /**
  * Component of a match list, lives or upcomings
@@ -31,7 +32,7 @@ class MatchList extends Component {
     if (!matches.length) {
       matchList = (
         <ul className='match-list'>
-          <li><span className='dim'>No matches.</span></li>
+          <li><span className='dim'>{lan('noMatches')}</span></li>
         </ul>
       )
     } else {
