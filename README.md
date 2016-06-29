@@ -1,4 +1,4 @@
-# Dota2 Match Ticker [![Build Status](https://img.shields.io/travis/Yu1989/submail-sms/master.svg?style=flat-square)](https://travis-ci.org/Yu1989/submail-sms)
+# Dota2 Match Ticker [![Build Status](https://img.shields.io/travis/Yu1989/dota2-match-ticker/master.svg?style=flat-square)](https://travis-ci.org/Yu1989/dota2-match-ticker)
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
